@@ -28,7 +28,7 @@
         product
         (fact-iter (* product counter) (+ counter 1))))
   (fact-iter 1 1))
- 
+
 (define (inc a)
   (+ a 1))
 
@@ -109,8 +109,8 @@
   (if (= count 0)
       product
       (expt-iter b (- count 1) (* b product))))
-  
-  
+
+
 (define (expt-recur b n)
   (if (= n 0)
       1
@@ -134,14 +134,14 @@
       ((= n 0) a)
       ((even? n) (do-fast-expt-iter (square b) (/ n 2) a))
       (else (do-fast-expt-iter b (- n 1) (* a b)))))
-    
+
   (do-fast-expt-iter b n 1))
 
 (define (fast-* a b)
   (cond
     ((= b 0) 0)
     ((even? b) (fast-* (* 2 a) (/ b 2)))
-    (else (+ a (fast-* a (- b 1)))))) 
+    (else (+ a (fast-* a (- b 1))))))
 
 (define (fast-*-iterative a b)
   (define (do-fast-*-iter a b result)
@@ -228,7 +228,7 @@
 
 (define (sum-cubes a b)
   (sum cube a inc b))
-        
+
 (define (sum-integers a b)
   (sum identity a inc b))
 
@@ -252,7 +252,7 @@
         y
         (if (even? k)
             (* 2 y)
-            (* 4 y))))              
+            (* 4 y))))
   (* (sum-iter simpson-term 0 inc n) (/ h 3)))
 
 (define (sum-iter term a next b)
@@ -439,7 +439,7 @@
   (if (= n 0)
       identity
       (compose f (repeated f (- n 1)))))
-  
+
 (define dx 0.00001)
 
 (define (smooth f)
@@ -474,5 +474,8 @@
     (average guess (/ x guess)))
   ((iterative-improve good-enough? improve) 1.0))
 
-(define (fixed-point-general f)
-  ((iterative-improve f close-enough?) first-guess))
+;(define (fixed-point-general f)
+;  (define (close-enough? v1 v2)
+;    (define tolerance 1.e-6)
+;    (< (/ (abs (- v1 v2)) v2)  tolerance))
+;  ((iterative-improve f close-enough?) first-guess))

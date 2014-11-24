@@ -1,0 +1,1 @@
+("6.1.1" ("7d66c5a8bcfa3d7500fc36a10bd73c9f9bcf3d74" . "9bbc71baef5c8bf08c20e0d47b45f82d7977e3b5") (collects #"scheme" #"main.rkt") #"/Users/sam/Library/Racket/planet/300/6.1.1/cache/williams/science.plt/4/8/random-source.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"scheme" #"runtime-config.rkt"))
